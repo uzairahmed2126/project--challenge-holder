@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+#main-title {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+    font-family: 'Assistant', sans-serif;
+    text-transform: capitalize;
+}
+
+#challenge-days {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+}
+
+.days {
+    padding: 40px;
+    background-color: #fff;
+    margin: 10px;
+    /* outline: 1px lightseagreen solid; */
+    font-family: 'Assistant', sans-serif, cursive;
+    border-radius: 10px;
+    box-shadow: 2px 4px 8px;
+    cursor: pointer;
+}
+
+
+/* custom start */
+.custom {
+    grid-column: 1/5;
+    background-color: aliceblue;
+}
+
+/* custom end */
+
+/* checkbox start */
+#check-box-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    position: absolute;
+    margin: 40px;
+    top: 10%;
+    /* left: 10%; */
+}
+
+#check-box-main-title {
+    font-family: 'Assistant', sans-serif;
+    text-transform: capitalize;
+}
+
+.checkboxes {
+    display: flex;
+    margin: 40px;
+    flex-wrap: wrap;
+    font-family: 'Assistant', sans-serif;
+    text-transform: capitalize;
+    background-color: #fff;
+    box-shadow: 2px 4px 8px;
+    border-radius: 10px;
+
+}
+
+.checkboxes>input {
+    margin: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* checkbox end */
