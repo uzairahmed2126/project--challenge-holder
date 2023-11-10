@@ -79,3 +79,48 @@ body {
 }
 
 /* checkbox end */
+#custom {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+}
+
+.custom-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 2px 4px 8px;
+    padding: 50px;
+    border-radius: 0.3rem;
+    margin: 10px;
+}
+
+.custom-div>input {
+    border-radius: 0.3rem;
+    border: none;
+    outline: navy 1px dashed;
+    padding: 10px;
+    margin: 10px;
+}
+
+.custom-div>input::placeholder {
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+.btn-container {
+
+    
+
+}
+.btn-container > button {
+    padding: 10px;
+    justify-content: end;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    border: none;
+    color: blue;
+    box-shadow: 2px 4px 8px;
+    text-shadow: 2px 4px 8px;
+}
