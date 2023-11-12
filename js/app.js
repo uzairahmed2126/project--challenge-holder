@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkboxMainTitle = document.getElementById('check-box-main-title')
     const checkboxInnerText = document.querySelector('.check-box-inner-text')
     const customText = document.querySelector('.custom-text')
+    const closeBtn = document.querySelector('.fa-xmark')
 
     numberOfChallenge.forEach((eachNumber) => {
         const addDays = `${eachNumber} days`;
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionEl.addEventListener('click', (value) => {
             mainContainer.style.visibility = 'hidden';
             checkBoxContainer.style.visibility = 'visible';
-            // customMainContainer.style.visibility = 'hidden';
+            customMainContainer.style.visibility = 'hidden';
             for (let i = 1; i <= eachNumber; i++) {
                 const createCheckBox = document.createElement('input');
                 createCheckBox.type = 'checkbox';
@@ -51,29 +52,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 checkboxMainTitle.style.display = 'block';
                 checkBoxContainer.append(createCheckBox);
                 checkBoxes.append(createCheckBox);
+            };
+            console.log(value.target, eachNumber)
+            if (eachNumber.length) {
+                customMainContainer.style.visibility = 'visible';
+                closeBtn.addEventListener('click', () => {
+                    customMainContainer.style.visibility = 'hidden'
+                    checkboxInnerText.innerText = '';
+                    mainContainer.style.visibility = 'visible';
+                });
             }
-            // console.log(value.target, eachNumber)
 
-        })
+            // localStorage.setItem('value',eachNumber)
+        });
         challengeDays.append(sectionEl);
     });
-    document.addEventListener('keydown', function (user_event2) {
-        // if (user_event2.key === 'Escape') {
-        //     customMainContainer.style.display = 'none';
-        //     mainContainer.style.visibility = 'visible';
-        //     checkboxMainTitle.style.display = 'none';
-        //     checkBoxes.style.display = 'none';
-        //     console.log(user_event2.target)
-        // }
-        // else if(user_event2.key !== 'Escape'){
-        //     customMainContainer.style.display = '';
-        //     mainContainer.style.visibility = 'hidden';
-        //     checkboxMainTitle.style.display = '';
-        //     checkBoxes.style.display = '';
-        // }else{
-        //     console.log('fdsfa')
-        // }
-    });
+    // document.addEventListener('keydown', function (user_event2) {
+    //     if (user_event2.key === 'Escape') {
+    //         customMainContainer.style.display = 'none';
+    //         mainContainer.style.visibility = 'visible';
+    //         checkboxMainTitle.style.display = 'none';
+    //         checkBoxes.style.display = 'none';
+    //         console.log(user_event2.target)
+    //     } else {
+
+    //         customMainContainer.style.display = '';
+    //         mainContainer.style.visibility = 'hidden';
+    //         checkboxMainTitle.style.display = '';
+    //         checkBoxes.style.display = '';
+    //     }
+    // });
 });
 // have to add local storage and time when the user select the challenge current date to final date also add days after checkbox.
 // localStorage.setItem()

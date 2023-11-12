@@ -92,7 +92,7 @@ body {
     justify-content: center;
     text-align: center;
     box-shadow: 2px 4px 8px;
-    padding: 50px;
+    padding: 60px;
     border-radius: 0.3rem;
     margin: 10px;
 }
@@ -109,10 +109,18 @@ body {
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
 }
-.btn-container {
-
-    
-
+#close-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: end;
+    /* position: absolute;
+    left: 71%;
+    top: 45%; */
+}
+#close-btn > i{
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 .btn-container > button {
     padding: 10px;
@@ -123,4 +131,7 @@ body {
     color: blue;
     box-shadow: 2px 4px 8px;
     text-shadow: 2px 4px 8px;
+}
+.active {
+    visibility: hidden;
 }
