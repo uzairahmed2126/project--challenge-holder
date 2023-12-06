@@ -8,6 +8,14 @@ body {
     background-color: #f9f9f9;
 }
 
+#check-box-main-container {
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* visibility: hidden; */
+}
+
 #main-title {
     display: flex;
     justify-content: center;
@@ -40,45 +48,6 @@ body {
     background-color: aliceblue;
 }
 
-/* custom end */
-
-/* checkbox start */
-#check-box-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    position: absolute;
-    margin: 40px;
-    top: 10%;
-    /* left: 10%; */
-}
-
-#check-box-main-title {
-    font-family: 'Assistant', sans-serif;
-    text-transform: capitalize;
-}
-
-.checkboxes {
-    display: flex;
-    margin: 40px;
-    flex-wrap: wrap;
-    font-family: 'Assistant', sans-serif;
-    text-transform: capitalize;
-    background-color: #fff;
-    box-shadow: 2px 4px 8px;
-    border-radius: 10px;
-
-}
-
-.checkboxes>input {
-    margin: 10px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-/* checkbox end */
 #custom {
     display: flex;
     flex-direction: column;
@@ -109,20 +78,116 @@ body {
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
 }
+
+/* custom end */
+
+/* checkbox start */
+#check-box-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    position: absolute;
+    width: fit-content;
+    /* margin: 10px; */
+    top: 4%;
+    /* left: 0%; */
+}
+
+#check-box-main-title {
+    font-family: 'Assistant', sans-serif;
+    text-transform: capitalize;
+}
+
+.checkboxes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    margin: 40px;
+    /* flex-wrap: wrap; */
+    font-family: 'Assistant', sans-serif;
+    text-transform: capitalize;
+    background-color: gray;
+    box-shadow: 2px 4px 10px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+p {
+    font-size: 21px;
+}
+
+/* Style for classical checkboxes */
+.checkboxes>input {
+    position: relative;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000;
+    border-radius: 4px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.checkboxes>input:checked {
+    background-color: #000;
+    border: 2px solid #fff;
+}
+
+.checkboxes>input::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 14px;
+    border: solid;
+    border-width: 0 2px 2px 0;
+    border-color: #fff;
+    opacity: 0;
+    transform-origin: 50% 50%;
+}
+
+.checkboxes>input:checked::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Additional styling for better usability */
+.checkboxes>input:hover {
+    border-color: #333;
+    /* Darken border on hover */
+}
+
+.checkboxes>input:active {
+    transform: scale(0.95);
+    /* Slight scale down on click for visual feedback */
+}
+
+/* checkbox end */
+
 #close-btn {
     display: flex;
     flex-direction: row;
     justify-content: end;
-    align-items: end;
-    /* position: absolute;
-    left: 71%;
-    top: 45%; */
+    /* align-items: end; */
+    position: absolute;
+    margin: 10ex;
+    right: 0%;
+    top: 4%;
+    bottom: 100%;
 }
-#close-btn > i{
+
+#close-btn>i {
     font-size: 1.5rem;
     cursor: pointer;
 }
-.btn-container > button {
+
+.btn-container>button {
     padding: 10px;
     justify-content: end;
     cursor: pointer;
@@ -131,7 +196,4 @@ body {
     color: blue;
     box-shadow: 2px 4px 8px;
     text-shadow: 2px 4px 8px;
-}
-.active {
-    visibility: hidden;
 }
