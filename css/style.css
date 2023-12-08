@@ -13,7 +13,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* visibility: hidden; */
 }
 
 #main-title {
@@ -83,7 +82,9 @@ body {
 
 /* checkbox start */
 #check-box-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -98,12 +99,13 @@ body {
 #check-box-main-title {
     font-family: 'Assistant', sans-serif;
     text-transform: capitalize;
+    grid-column: 1/3;
 }
 
 .checkboxes {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    place-items: center;
+    grid-template-columns: repeat(20, 2fr);
+    /* padding: 50px; */
     margin: 40px;
     /* flex-wrap: wrap; */
     font-family: 'Assistant', sans-serif;
@@ -111,12 +113,51 @@ body {
     background-color: gray;
     box-shadow: 2px 4px 10px;
     border-radius: 10px;
-    padding: 10px;
+    padding: 30px;
 }
 
 p {
     font-size: 21px;
 }
+
+#title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    gap: 10px;
+    background-color: lightgray;
+    box-shadow: 1px 2px 5px;
+    border-radius: 0.3rem;
+    padding: 10px;
+    grid-column: 1/5;
+}
+
+#title>input[type='text'] {
+    border-radius: 0.3rem;
+    box-shadow: 1px 2px 5px;
+    border: none;
+    padding: 10px;
+}
+
+#title>input::placeholder {
+    color: lightslategray;
+    text-transform: capitalize;
+}
+
+#title>input[type='submit'] {
+    color: lightgray;
+    background: #333;
+    border-radius: 0.3rem;
+    box-shadow: 1px 2px 5px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+#title>input[type='submit']:hover {
+    scale: 1.1;
+}
+
 
 /* Style for classical checkboxes */
 .checkboxes>input {
@@ -124,8 +165,8 @@ p {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     border: 2px solid #000;
     border-radius: 4px;
     margin: 0;
@@ -145,9 +186,8 @@ p {
     transform: translate(-50%, -50%);
     width: 8px;
     height: 14px;
-    border: solid;
+    border: solid #f9f9f9;
     border-width: 0 2px 2px 0;
-    border-color: #fff;
     opacity: 0;
     transform-origin: 50% 50%;
 }
@@ -171,15 +211,9 @@ p {
 /* checkbox end */
 
 #close-btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    /* align-items: end; */
     position: absolute;
-    margin: 10ex;
-    right: 0%;
-    top: 4%;
-    bottom: 100%;
+    top: 8%;
+    right: 25%;
 }
 
 #close-btn>i {
