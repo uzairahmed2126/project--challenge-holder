@@ -120,7 +120,7 @@ p {
     font-size: 21px;
 }
 
-#title {
+#create-challenge {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -133,19 +133,19 @@ p {
     grid-column: 1/5;
 }
 
-#title>input[type='text'] {
+#create-challenge>input[type='number'] {
     border-radius: 0.3rem;
     box-shadow: 1px 2px 5px;
     border: none;
     padding: 10px;
 }
 
-#title>input::placeholder {
+#create-challenge>input::placeholder {
     color: lightslategray;
     text-transform: capitalize;
 }
 
-#title>input[type='submit'] {
+#create-challenge>input[type='submit'] {
     color: lightgray;
     background: #333;
     border-radius: 0.3rem;
@@ -154,7 +154,7 @@ p {
     padding: 10px;
     cursor: pointer;
 }
-#title>input[type='submit']:hover {
+#create-challenge>input[type='submit']:hover {
     scale: 1.1;
 }
 
