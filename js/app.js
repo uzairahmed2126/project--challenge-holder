@@ -1,12 +1,19 @@
-let numberOfChallenge = [];
 document.addEventListener('DOMContentLoaded', () => {
-    const titleId = document.getElementById('create-challange');
+    //     const mainContainer = document.getElementById('main');
+    //     const challengeDays = document.getElementById('challenge-days');
+    //     const customMainContainer = document.getElementById('custom');
+    //     const customText = document.querySelector('.custom-text');
+    //     const checkBoxMainContainer = document.getElementById('check-box-main-container');
+    const checkBoxes = document.querySelector('.checkboxes');
+    const checkboxMainTitle = document.getElementById('check-box-main-title');
+    const checkboxInnerText = document.querySelector('.check-box-inner-text');
+    const checkBoxContainer = document.getElementById('check-box-container');
     const createChallenge = document.getElementById('create-challenge');
     function createInput() {
         const textInput = document.createElement('input');
         const buttonInput = document.createElement('input');
         textInput.type = 'number';
-        textInput.placeholder = "Enter Title";
+        textInput.placeholder = "Enter Number Of Challenge";
         textInput.id = 'txt';
         buttonInput.type = 'submit';
         buttonInput.value = 'submit';
@@ -17,24 +24,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const txt = document.getElementById('txt');
     const submit = document.getElementById('submit');
     txt.style.textTransform = 'capitalize';
+
     txt.addEventListener('input', (txtInput) => {
+        let numberOfChallenge = [];
         let inputNumber = txtInput.target.value;
         let strIntoNum = Number(inputNumber);
         submit.addEventListener('click', () => {
             if (strIntoNum <= 0) {
-                titleId.innerHTML = 'error'
+                createChallenge.innerHTML = 'error';
+                strIntoNum = 1;
+            } else {
+                for (let i = 1; i <= strIntoNum; i++) {
+                    // numberOfChallenge.filter((num, index, array) => array.indexOf(num) === index);
+                    numberOfChallenge.push([i]);
+                }
+                numberOfChallenge.forEach((eachNumber) => {
+                    // for (let i = 1; i <= eachNumber; i++) {
+                    const createCheckBox = document.createElement('input');
+                    const createP = document.createElement('p');
+                    createP.innerText = `Day ${eachNumber}`;
+                    createCheckBox.type = 'checkbox';
+                    checkboxInnerText.innerText = `You selected this ${eachNumber} days challenge i appriciate you to keep focus on your aim.`;
+                    checkboxMainTitle.style.visibility = 'visible';
+                    checkBoxContainer.append(createCheckBox);
+                    checkBoxes.append(createCheckBox, createP);
+                    // localStorage.setItem('value',checkBoxes);
+                    // };
+                });
             }
         });
     });
-    //     const mainContainer = document.getElementById('main');
-    //     const checkBoxContainer = document.getElementById('check-box-container');
-    //     const challengeDays = document.getElementById('challenge-days');
-    //     const checkBoxes = document.querySelector('.checkboxes');
-    //     const customMainContainer = document.getElementById('custom');
-    //     const checkboxMainTitle = document.getElementById('check-box-main-title');
-    //     const checkboxInnerText = document.querySelector('.check-box-inner-text');
-    //     const customText = document.querySelector('.custom-text');
-    //     const checkBoxMainContainer = document.getElementById('check-box-main-container');
+
+
 
     //     function createCloseBtn() {
     //         const createSpanEl = document.createElement('span');
@@ -56,7 +77,27 @@ document.addEventListener('DOMContentLoaded', () => {
     //     function reloadPage() {
     //         location.reload();
     //     };
-    //     numberOfChallenge.forEach((eachNumber) => {
+    //         sectionEl.addEventListener('click', (value) => {
+    //             createCloseBtn();
+    //             createInput();
+    //             const txt = document.getElementById('txt');
+    //             const submit = document.getElementById('submit');
+    //             txt.style.textTransform = 'capitalize';
+    //             txt.addEventListener('input', (txtInput) => {
+    //                 let inputNumber = txtInput.target.value;
+    //                 submit.addEventListener('click', () => {
+    //                     if (inputNumber != '') {
+    //                         titleId.style.fontFamily = 'Courier New, Courier, monospace';
+    //                         titleId.style.fontSize = '20px';
+    //                         titleId.style.color = 'green';
+    //                         titleId.style.backgroundColor = '#f9f9f9';
+    //                         titleId.style.textTransform = 'capitalize';
+    //                         titleId.innerHTML = inputNumber;
+    //                     }
+    //                     // localStorage.setItem('title',inputNumber);
+    //                 });
+    //             });
+    //             // localStorage.setItem('//     numberOfChallenge.forEach((eachNumber) => {
     //         createCloseBtn();
     //         const addDays = `${eachNumber} days`;
     //         const sectionEl = document.createElement('section');
@@ -87,27 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //             customDiv.append(btnContainer);
     //             customMainContainer.append(customDiv);
     //         }
-    //         sectionEl.addEventListener('click', (value) => {
-    //             createCloseBtn();
-    //             createInput();
-    //             const txt = document.getElementById('txt');
-    //             const submit = document.getElementById('submit');
-    //             txt.style.textTransform = 'capitalize';
-    //             txt.addEventListener('input', (txtInput) => {
-    //                 let inputNumber = txtInput.target.value;
-    //                 submit.addEventListener('click', () => {
-    //                     if (inputNumber != '') {
-    //                         titleId.style.fontFamily = 'Courier New, Courier, monospace';
-    //                         titleId.style.fontSize = '20px';
-    //                         titleId.style.color = 'green';
-    //                         titleId.style.backgroundColor = '#f9f9f9';
-    //                         titleId.style.textTransform = 'capitalize';
-    //                         titleId.innerHTML = inputNumber;
-    //                     }
-    //                     // localStorage.setItem('title',inputNumber);
-    //                 });
-    //             });
-    //             // localStorage.setItem('selectedChallenge', eachNumber);
+
     //             if (!value.target) {
     //                 mainContainer.style.visibility = '';
     //                 checkBoxContainer.style.visibility = '';
@@ -118,17 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //                 customMainContainer.style.visibility = 'hidden';
     //             }
 
-    //             for (let i = 1; i <= eachNumber; i++) {
-    //                 const createCheckBox = document.createElement('input');
-    //                 const createP = document.createElement('p');
-    //                 createP.innerText = `Day ${i}`;
-    //                 createCheckBox.type = 'checkbox';
-    //                 checkboxInnerText.innerText = `You selected this ${eachNumber} days challenge i appriciate you to keep focus on your aim.`;
-    //                 checkboxMainTitle.style.display = 'block';
-    //                 checkBoxContainer.append(createCheckBox);
-    //                 checkBoxes.append(createCheckBox, createP);
-    //                 // localStorage.setItem('value',checkBoxes);
-    //             };
+    //            
     //             console.log(value.target, eachNumber)
     //             // if (eachNumber.length) {
     //             //     customMainContainer.style.visibility = 'visible';
@@ -144,3 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //     // checkboxMainTitle.append(createCloseBtn())
 });
 // // have to add local storage and time when the user select the challenge current date to final date also add days after checkbox.
+
+
+// let a = [];
+// // a.forEach((e) => {
+
+// // })
